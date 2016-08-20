@@ -12,6 +12,13 @@ new Vue({
   init: function () {
     store.fetchPosts()
   },
+  computed: {
+    // a computed getter
+    b: function () {
+      // `this` points to the vm instance
+      return this.sharedState.posts
+    }
+  },
   methods: {
     tellStoreToFetchPosts: function () {
 

@@ -12,5 +12,8 @@ export const store = {
     Vue.http.get(baseUrl + 'posts').then((response) => {
       this.state.posts = response.data
     })
+  },
+  mutateTest: function () {
+    this.state.posts[0].title = 'MUTATED'
   }
 }

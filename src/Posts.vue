@@ -1,20 +1,20 @@
 <template lang="html">
   <div class="posts">
+    <button type="button" @click="testMutate" name="button">Test Mutate</button>
     <h2>Posts File</h2>
     <div class="posts__container">
-      <ul class="post__list">
-        <li class="post__item" v-for="post in sharedState.posts">
-          <h3>{{ post.title }}</h3>
-          <span>{{ post.excerpt }}</span>
-        </li>
+      <ul>
+        <post v-for="post in sharedState.posts" :post="post"></post>
       </ul>
+      <!-- <post v-for="post in sharedState.posts" :post="post"></post> -->
+
     </div>
   </div>
 </template>
 
 <script>
+import Post from './Post.vue'
 import {store} from './store.js'
-const baseUrl = 'http://localhost:3004/'
 
 export default {
   data: function () {
@@ -25,8 +25,11 @@ export default {
   ready: function () {
   },
   methods: {
+    testMutate: function () {
+      store.mutateTest()
+    }
   },
-  components: {}
+  components: { Post }
 }
 </script>
 
